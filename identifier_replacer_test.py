@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import ast
 
-import pytest
 
 from latexify import test_utils
 from latexify.transformers.identifier_replacer import IdentifierReplacer
@@ -39,7 +38,6 @@ def test_functiondef() -> None:
     #     @d
     #     def f(y=b, *, z=c):
     #         pass
-    source = ast.FunctionDef(
         name="f",
         args=ast.arguments(
             args=[ast.arg(arg="y")],
@@ -78,7 +76,6 @@ def test_functiondef() -> None:
 def test_functiondef_with_posonlyargs() -> None:
     # Subtree of:
     #     @d
-    #     def f(x=a, /, y=b, *, z=c):
     #         pass
     source = ast.FunctionDef(
         name="f",
